@@ -1,0 +1,26 @@
+# Copy this file to ~/.offlineimaprc and edit.
+
+[general]
+accounts = Personal
+
+[Account Personal]
+localrepository = Local
+remoterepository = Remote
+
+[Repository Local]
+type = Maildir
+localfolders = ~/dailydumper-imap-mirror
+sync_deletes = no
+
+[Repository Remote]
+type = IMAP
+remotehost = imap.server.com
+remoteuser = user@example.org
+remotepass = password123
+folderfilter = lambda foldername: foldername in ['Folder of Image Attachments']
+readonly = True
+ssl=true
+# for mac:
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+# for other:
+# sslcacertfile = OS-DEFAULT
