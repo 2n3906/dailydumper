@@ -56,7 +56,7 @@ def extract_images(msg, output_path):
     for part in msg.walk():
         content_type = part.get_content_type()
         if content_type.startswith('image') or content_type.startswith('video'):
-            filename_original = part.get_filename()
+            filename_original = part.get_filename().lower()
             filename_new = os.path.join(output_path, message_date.strftime('%Y-%m-%d-') + filename_original)
             if not os.path.isfile(filename_new):
                 print('Parsing attachment {} --> {}'.format(filename_original, filename_new))
